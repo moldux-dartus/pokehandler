@@ -9,6 +9,25 @@ content = content.split('\n')
 //api url https://pokeapi.co/api/v2/pokemon/ditto
 // returns an object with a key type (among otherstuff)
 
+let typeColors = {
+    Electric:	'F8D030',
+    Normal:	'A8A878',
+    Fire:	'F08030',
+    Rock:	'B8A038',
+    Poison:	'A040A0',
+    Psychic:	'F85888',
+    Water:	'6890F0',
+    Bug:	'A8B820',
+    Ice:	'98D8D8',
+    Dragon:	'7038F8',
+    Fighting:	'C03028',
+    Ghost:	'705898',
+    Grass:	'78C850',
+    Ground:	'E0C068',
+}
+
+console.log(typeColors)
+/*function takes typestring as input returns color code*/
 for (var x = 0; x < content.length; x++)
 {
     fetch(`https://pokeapi.co/api/v2/pokemon/${content[x]}`)
@@ -18,9 +37,9 @@ for (var x = 0; x < content.length; x++)
         let pokemonName = data.name.charAt(0).toUpperCase() + data.name.slice(1)
         let output = data.types.map(element => element.type.name)
         let typeString = output.join(', ')
-        console.log(`%c${pokemonName}: ${typeString}`, 'background: #222; color: #bada55' )
-        console.log( "\u001b[1;36m Cyan message" );
-        //%c Oh my heavens! ', 'background: #222; color: #bada55
+        console.log(`%c ${pokemonName}: ${typeString}`, 'color: #bada55' )
+        console.log('%c Oh my heavens! ', 'background: #222; color: #bada55');
+        // why did this stop working....
 
     });
     
