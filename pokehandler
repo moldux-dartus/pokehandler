@@ -1,0 +1,30 @@
+const fs = require('fs');
+const fetch = require('node-fetch')
+let userInput = process.argv[2]
+
+var data = fs.readFileSync(userInput);
+var content = data.toString()
+content = content.split('\n')
+
+//api url https://pokeapi.co/api/v2/pokemon/ditto
+// returns an object with a key type (among otherstuff)
+
+for (var x = 0; x < content.length; x++)
+{
+    fetch(`https://pokeapi.co/api/v2/pokemon/${content[x]}`)
+    .then(response => response.json())
+    .then(function(data){
+        //console.log(data.name)
+        let output = data.types.map(element => element.type.name)
+        let typeString = output.join(', ')
+        console.log(`${data.name}: ${typeString}`)
+    });
+    
+}
+
+/*
+console.log(typeObj)
+    console.log(typeof typeObj.types)
+    let output = typeObj.typemap(element => element.type.name)
+    console.log(output)
+*/
