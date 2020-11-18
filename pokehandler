@@ -15,9 +15,10 @@ for (var x = 0; x < content.length; x++)
     .then(response => response.json())
     .then(function(data){
         //console.log(data.name)
+        let pokemonName = data.name.charAt(0).toUpperCase() + data.name.slice(1)
         let output = data.types.map(element => element.type.name)
         let typeString = output.join(', ')
-        console.log(`${data.name}: ${typeString}`)
+        console.log(`${pokemonName}: ${typeString}`)
     });
     
 }
