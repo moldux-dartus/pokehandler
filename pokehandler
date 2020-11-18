@@ -26,7 +26,7 @@ let typeColors = {
     Ground:	'E0C068',
 }
 
-console.log(typeColors)
+//console.log(typeColors)
 /*function takes typestring as input returns color code*/
 for (var x = 0; x < content.length; x++)
 {
@@ -38,8 +38,11 @@ for (var x = 0; x < content.length; x++)
         let output = data.types.map(element => element.type.name)
         let typeString = output.join(', ')
         console.log(`%c ${pokemonName}: ${typeString}`, 'color: #bada55' )
-        console.log('%c Oh my heavens! ', 'background: #222; color: #bada55');
+        //console.log('%c Oh my heavens! ', 'color: red');
         // why did this stop working....
+        // it works in google chrome, maybe just doesnt work in vs? but i saw it work a second agooooo
+        //I saw it too; I'll push it now
+        
 
     });
     
